@@ -1,0 +1,38 @@
+:root {
+  --defaultPrimaryColor: #000000;
+  --defaultSecondaryColor: #1e1e1e;
+  --defaultTertiaryColor: #5f5f5f;
+  --defaultAccentColor: #8d8d8d;
+  --defualtHoverBackground: #a9a9a9;
+  --defaultTextColor: #dddddd;
+  --defaultBorderColor: #39495e;
+  --defaultBorderWidth: 2px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--defaultPrimaryColor);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  grid-template-rows: auto 1fr;
+  /* ticker-tape height and remaining space */
+  grid-template-areas:
+    "sidebar ticker-tape"
+    "sidebar main";
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+
+.ticker-tape {
+  margin: 10px;
+  margin-bottom: 0px;
+  background-color: var(--defaultSecondaryColor);
+  border-radius: 5px;
+  /* Optional: for rounded corners */
+}

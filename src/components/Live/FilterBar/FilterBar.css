@@ -1,0 +1,40 @@
+@import url('../../../App.css');
+
+.live-filter-bar {
+    background-color: var(--defaultSecondaryColor);
+    border-radius: 8px;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    color: var(--defaultTextColor);
+    display: flex; /* Ensures items are in line */
+    align-items: center; /* Aligns items vertically */
+    justify-content: flex-start; 
+}
+
+.live-filter-bar-button {
+    background-color: transparent;
+    padding: 8px;
+    border: transparent;
+    cursor: pointer;
+    color: #525354;
+    margin-right: 5px; /* Adds space between buttons */
+}
+
+.live-filter-bar-button.selected {
+    color:  var(--defaultTextColor); /* Ensures text is visible on the highlighted button */
+}
+
+.live-filter-bar-refresh-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #525354; /* Adjust the color to match your theme */
+  margin-left: auto; /* Pushes the refresh button to the far right */
+}
+
+.session-separator {
+  padding: 0 5px; /* Adjusts spacing around the separator */
+  color: #525354; /* Ensures consistent color styling */
+}

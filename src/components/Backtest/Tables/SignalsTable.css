@@ -1,0 +1,104 @@
+@import url('../../../App.css');
+
+.signal-table-container {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  /* border-collapse: collapse; */
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
+  font-feature-settings: "tnum" on, "lnum" on;
+  font-size: 10px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.signal-table {
+  width: 100%;
+  overflow: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  table-layout: auto;
+  border-collapse: collapse;
+  /* Force border collapse */
+  background-color: var(--defaultSecondaryColor);
+  margin: 0;
+}
+
+.signal-table-header {
+  background-color: #333;
+  padding: 15px;
+  font-size: 0.9em;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* Force remove border below header */
+  text-transform: uppercase;
+}
+
+.signal-table-header:nth-child(5) {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.signal-timestamp-column-header {
+  width: 195px;
+  /* Adjust the percentage based on the table layout */
+  background-color: #333;
+  text-align: left;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding-left: 15px;
+  /* Remove border under timestamp header */
+}
+
+.signal-timestamp-column-data {
+  width: 195px;
+  /* Adjust the percentage based on the table layout */
+}
+
+
+
+.signal-table-data {
+  padding: 10px;
+  padding: 10px 10px;
+  border-bottom: 1px;
+  color: var(--defaultTextColor);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+
+}
+
+
+
+.signal-table-row {
+  border-bottom: 1px solid #434651;
+  /* Forcefully remove the bottom border */
+  /* border-bottom: none !important; */
+}
+
+/* Pagination Buttons */
+.signal-pagination {
+  display: flex;
+  justify-content: flex-end;
+  /* Aligns pagination to the right */
+  padding: 0px;
+  color: white;
+}
+
+.signal-pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  color: grey;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.signal-pagination button:hover {
+  color: white;
+}

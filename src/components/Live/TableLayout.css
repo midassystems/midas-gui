@@ -1,0 +1,42 @@
+@import url('../../App.css');
+
+.live-table-container  {
+  color: #fff; /* White text */
+  font-family: 'Arial', sans-serif;
+  border-collapse: collapse; /* Eliminates the space between table borders */
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
+  font-feature-settings: "tnum" on, "lnum" on;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.live-table-header {
+  background-color: #333; /* Category header with its own style */
+  padding: 15px;
+  font-size: 0.9em;
+  text-align: left;
+  padding-top: 10px; 
+  padding-bottom: 10px; /* This would push the single line headers down to align */
+}
+
+.top-word {
+  display: block;
+  margin-bottom: 8px; /* This will add space between the two words */
+}
+
+.bottom-word {
+  display: block;
+}
+
+.live-table-row  {
+  border-bottom: 1px solid #434651; /* Border below each row */
+}
+
+.live-table-row:last-child {
+  border-bottom: none; /* No border for the last row to prevent a double border */
+}
+
+.live-table-data {
+  padding: 10px; /* Padding inside cells */
+}

@@ -1,0 +1,106 @@
+@import url('../../App.css');
+
+/* General container styling */
+.market-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 10px;
+  margin-top: 5px;
+}
+
+/* Bar at the top for adding charts */
+.market-dashboard-bar {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 2px;
+  background-color: var(--defaultSecondaryColor);
+  color: var(--defaultTextColor);
+  border-radius: 8px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+}
+
+/* Add chart button styling */
+.add-chart-btn {
+  background-color: transparent;
+  color: #555;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.add-chart-btn:hover {
+  color: white;
+}
+
+/* Grid layout: dynamic based on the number of charts */
+.market-dashboard-grid {
+  display: grid;
+  width: 100%;
+  height: calc(100% - 50px);
+  /* Takes the full space minus the bar's height */
+  gap: 10px;
+  /* Space between charts */
+  overflow: hidden;
+  /* Prevent scrollbars */
+}
+
+.market-chart-container {
+  background-color: #111;
+  border-radius: 8px;
+  position: relative;
+  /* Needed for the close button */
+}
+
+/* Responsive grid for different chart layouts */
+.market-dashboard-grid.one-chart {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.market-dashboard-grid.two-charts {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.market-dashboard-grid.three-charts {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.market-dashboard-grid.three-charts .market-chart-container:nth-child(3) {
+  grid-column: span 2;
+  /* Span the third chart across both columns */
+}
+
+.market-dashboard-grid.four-charts {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+/* Ensure each chart takes full width and height of its grid cell */
+.market-chart-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: #111;
+}
+
+/* Close button styling */
+.close-chart-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.close-chart-btn:hover {
+  color: #ff4d4d;
+
+}

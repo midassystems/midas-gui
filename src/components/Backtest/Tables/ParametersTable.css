@@ -1,0 +1,107 @@
+@import url('../../../App.css');
+
+/* Container */
+.parameters-table-container {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  border-collapse: collapse;
+  /* Eliminates the space between table borders */
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
+  font-feature-settings: "tnum" on, "lnum" on;
+  font-size: 10px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.parameters-table-header {
+  background-color: #333;
+  /* Category header with its own style */
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+}
+
+.parameters-table {
+  width: 100%;
+  overflow: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: var(--defaultSecondaryColor);
+  /* Consistent with the sidebar background */
+  margin: 0;
+}
+
+.parameters-table-row {
+  border-bottom: 1px solid #434651;
+}
+
+.parameters-table-row:last-child {
+  border-bottom: none;
+  /* No border for the last row to prevent a double border */
+}
+
+.parameters-table-data {
+  padding: 10px;
+  /* Padding inside cells */
+  padding: 10px 10px;
+  border-bottom: 1px;
+  color: var(--defaultTextColor);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+}
+
+.parameters-table {
+  width: 100%;
+  overflow: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  table-layout: auto;
+  /* Allows columns to adjust based on content */
+  border-collapse: collapse;
+  background-color: var(--defaultSecondaryColor);
+  margin: 0;
+}
+
+.parameters-table-data {
+  padding: 10px;
+  border-bottom: 1px;
+  color: var(--defaultTextColor);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* Ensures text doesn’t wrap unnecessarily */
+  padding: 0.5rem 0.75rem;
+}
+
+.parameters-table-row .parameters-table-data:first-child {
+  width: 20%;
+  /* Set a wider width for the first column (TICKERS) */
+}
+
+.parameters-table-row .parameters-table-data:nth-child(2),
+.parameters-table-row .parameters-table-data:nth-child(4) {
+  white-space: normal;
+  /* Allow text to wrap for date fields */
+  width: 30%;
+  /* Increase width for date columns */
+}
+
+.parameters-table-row .parameters-table-data:nth-child(3) {
+  width: 20%;
+  /* Adjust width of other columns */
+}

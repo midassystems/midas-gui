@@ -1,0 +1,38 @@
+@import url("../../../App.css");
+
+.news-filter-bar {
+  background-color: var(--defaultSecondaryColor);
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  color: var(--defaultTextColor);
+  /* Ensures items are in line */
+  display: flex;
+  /* Aligns items vertically */
+  align-items: center;
+  gap: 1px;
+}
+
+.news-filter-button {
+  background: none;
+  /* Allow items to grow equally */
+  flex-grow: 1;
+  border: none;
+  color: var(--defaultTextColor);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 0;
+  align-items: center;
+}
+
+.news-filter-button:hover {
+  color: white;
+}
+
+.news-separator {
+  color: #333;
+  /* Adjust horizontal margin around separator */
+  margin: 0 8px;
+}

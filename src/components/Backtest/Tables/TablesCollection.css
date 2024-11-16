@@ -1,0 +1,77 @@
+@import url('../../../App.css');
+
+.table-collection {
+  border-radius: 8px;
+  background-color: var(--defaultSecondaryColor);
+}
+
+.strategy-buttons-bar {
+  align-self: flex-start;
+}
+
+.button-style {
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: 0px transparent;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  background-color: transparent;
+  /* Make background transparent */
+  color: #666;
+  /* Slightly darker text color for better contrast on light backgrounds */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.button-style:not(.selected):after {
+  position: absolute;
+  right: -6px;
+  /* Adjust based on actual spacing */
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--defaultTextColor);
+}
+
+.button-style:hover {
+  color: #fff;
+}
+
+.button-style.selected {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+.button-style.selected::after {
+  content: '';
+  /* position: absolute; */
+  top: -2px;
+  /* Slightly larger top value to create the "ramp" effect */
+  left: -2px;
+  /* Slightly larger left value to create the "ramp" effect */
+  right: -2px;
+  /* Slightly larger right value to create the "ramp" effect */
+  bottom: -2px;
+  /* Slightly larger bottom value to create the "ramp" effect */
+  border-radius: 5px;
+  /* Match the border-radius of the button itself */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  /* Outer shadow to create the ramp effect */
+  z-index: -1;
+  /* Ensure the shadow doesn't overlap content */
+}
+
+.button-style.selected::before {
+  display: none;
+}
+
+.divider {
+  margin: 0 10px;
+  color: #666;
+  /* Make the divider color match the button text */
+  font-size: 1rem;
+  text-transform: uppercase;
+}
