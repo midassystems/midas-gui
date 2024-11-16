@@ -1,0 +1,43 @@
+@import url('../../../App.css');
+
+:root{
+    --chartTab_info_height:42px;
+  }
+    
+.return-chart-container {
+  width: 100%;
+  height: calc(100% - var(--chartTab_info_height));
+  z-index: 1;  
+  background-color: #000;  /* Adds a top border */
+  padding-top: 27.5px;
+  position: relative;
+}
+
+.return-chart-border-top {
+  position: absolute;
+  top: 27.5px; /* Adjust this to align with the top of the chart's plot area */
+  left: 0;
+  right: 0;
+  height: 0.5px; /* Height of the border */
+  background-color: rgba(197, 203, 206, 1); /* Color of the border */
+  z-index: 2; /* Ensure it's above the chart */
+}
+
+
+.return-chart {
+  z-index: 1; /* Ensure the chart is below the overlay if needed */
+  position: relative;
+  width: 100%; 
+  height: 100%;
+}
+
+
+.chart-bottom-extension {
+  position: absolute;
+  bottom: 27.5px; /* Adjust this to align with the top of the chart's plot area */
+  left: 0;
+  right: 0;
+  height: 0.5px; /* Height of the border */
+  background-color: rgba(197, 203, 206, 1); /* Color of the border */
+  z-index: 2; /* Ensure it's above the chart */
+}

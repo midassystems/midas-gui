@@ -1,0 +1,165 @@
+@import url('../../../App.css');
+
+.overview-table-container {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  border-collapse: collapse;
+  /* Eliminates the space between table borders */
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
+  font-feature-settings: "tnum" on, "lnum" on;
+  font-size: 10px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.overview-table-header {
+  background-color: #333;
+  /* Category header with its own style */
+  padding: 15px;
+  font-size: 0.9em;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.overview-table {
+  width: 100%;
+  overflow: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: var(--defaultSecondaryColor);
+  /* Consistent with the sidebar background */
+  margin: 0;
+  /* Adjusted to remove unnecessary margin */
+}
+
+
+.overview-table-row {
+  border-bottom: 1px solid #434651;
+  /* Border below each row */
+}
+
+.overview-table-row:last-child {
+  border-bottom: none;
+  /* No border for the last row to prevent a double border */
+}
+
+.overview-table-data-key,
+.overview-table-data-value {
+  /* padding: 10px; Padding inside cells */
+  /* padding: 5px px; */
+  border-bottom: 1px;
+  color: var(--defaultTextColor);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+}
+
+.overview-table-data-key {
+  text-align: left;
+  overflow: visible;
+}
+
+.overview-table-data-value {
+  text-align: right;
+
+}
+
+.overview-table {
+  width: 100%;
+  overflow: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  table-layout: fixed;
+  /* This makes the column widths fixed */
+  border-collapse: collapse;
+  background-color: var(--defaultSecondaryColor);
+}
+
+.overview-table-row {
+  border-bottom: 1px solid #434651;
+}
+
+.overview-table-row:last-child {
+  border-bottom: none;
+}
+
+.overview-table-data-key,
+.overview-table-data-value {
+  border-bottom: 1px;
+  color: var(--defaultTextColor);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+}
+
+.overview-table-data-key {
+  text-align: left;
+  /* Align keys on the left */
+}
+
+.overview-table-data-value {
+  text-align: left;
+  /* Align values on the right */
+  font-feature-settings: "tnum";
+  /* This ensures numbers are monospaced for better alignment */
+}
+
+.overview-table-header {
+  background-color: #333;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+}
+
+.overview-table {
+  width: 100%;
+  overflow: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  table-layout: auto;
+  /* Adjust columns based on content */
+  border-collapse: collapse;
+  background-color: var(--defaultSecondaryColor);
+}
+
+.overview-table-data-key {
+  width: 30%;
+  /* Shrink the width of the label column */
+  text-align: left;
+  /* Left-align the labels */
+  padding: 0.5rem 0.75rem;
+  white-space: nowrap;
+  /* Prevent text from wrapping */
+}
+
+.overview-table-data-value {
+  width: 70%;
+  /* Expand the width of the value column */
+  text-align: left;
+  /* Right-align the values */
+  padding: 0.5rem 0.75rem;
+  font-feature-settings: "tnum";
+  /* Ensure monospaced numbers for better alignment */
+  white-space: nowrap;
+  /* Prevent wrapping of the values */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

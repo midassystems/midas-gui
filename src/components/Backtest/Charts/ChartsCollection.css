@@ -1,0 +1,65 @@
+@import url('../../../App.css');
+
+.chart-collection-container {
+  background-color: var(--defaultSecondaryColor);
+  color: var(--defaultTextColor);
+  box-sizing: border-box;
+}
+
+.chart-selector {
+  /* Use Flexbox */
+  display: flex;
+  /* Space between left and right elements */
+  justify-content: space-between;
+  /* Align items vertically */
+  align-items: center;
+  padding: 0px;
+}
+
+.chart-collection-dropdown-menu,
+.timeframe-dropdown-menu {
+  padding: 5px;
+  background-color: #333;
+  color: var(--defaultTextColor);
+  border: 1px solid #333;
+  border-radius: 5px;
+  outline: none;
+  /* Removed box shadow for a flatter look */
+  box-shadow: none;
+  /* Remove default dropdown arrow */
+  appearance: none;
+  min-width: 160px;
+  z-index: 1;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="var(--defaultTextColor)" d="M6 6l5-5-1.4-1.4L6 3.2 2.4.6 1 2z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px top 50%;
+  background-size: 10px;
+}
+
+.chart-collection-dropdown-menu:hover,
+.timeframe-dropdown-menu:hover {
+  cursor: pointer;
+}
+
+.chart-collection-dropdown-menu option,
+.timeframe-dropdown-menu option {
+  background-color: var(--defaultTertiaryColor);
+  color: var(--defaultTextColor);
+}
+
+
+.chart-container {
+  width: 100%;
+  height: 500px;
+  box-sizing: border-box;
+  overflow: auto;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  padding-bottom: 0px;
+  display: block;
+  align-items: stretch;
+  position: relative;
+  justify-content: stretch;
+  gap: 0;
+}

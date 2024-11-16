@@ -1,0 +1,44 @@
+@import url('../../App.css');
+
+.news-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.news-grid {
+  display: grid;
+  /* Two-thirds for articles, one-third for the watchlist */
+  grid-template-columns: 2fr 1fr;
+  /* Dynamic rows based on content height */
+  grid-template-rows: auto auto;
+  grid-gap: 10px;
+  background-color: var(--defaultPrimaryColor);
+}
+
+.top-articles {
+  /* Span the first column */
+  grid-column: 1 / 2;
+  /* margin-b */
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--defaultSecondaryColor);
+  margin-left: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.watchlist {
+  /* Watchlist occupies the second column */
+  grid-column: 2 / 3;
+  /* Watchlist spans both rows */
+  grid-row: 1;
+  margin-left: 0px;
+}
+
+.remaining-articles {
+  /* Remaining articles occupy the first column */
+  grid-column: 1 / 3;
+  grid-row: 2;
+}

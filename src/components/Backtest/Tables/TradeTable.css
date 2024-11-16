@@ -1,0 +1,167 @@
+@import url('../../../App.css');
+
+
+.trade-table-container {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
+  font-feature-settings: "tnum" on, "lnum" on;
+  font-size: 10px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.trade-table {
+  width: 100%;
+  overflow: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  table-layout: auto;
+  /* Ensures columns take the width assigned */
+  border-collapse: collapse;
+  background-color: var(--defaultSecondaryColor);
+}
+
+.trade-table-header {
+  padding: 0.75rem 0.1rem;
+  color: var(--defaultTextColor);
+  text-align: center;
+  /* Default alignment for most columns */
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: #333;
+  /* text-align: left; */
+  /* Ensure the header aligns with the data */
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
+.trade-table-header:nth-child(8) {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.trade-table-data {
+  padding: 0.75rem 0.1rem;
+  color: var(--defaultTextColor);
+  text-align: center;
+  /* Default alignment for most columns */
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trade-timestamp-column-header {
+  width: 28%;
+  text-align: center;
+  background-color: #333;
+  text-transform: uppercase;
+  padding: 0.75rem 0.1rem;
+  color: var(--defaultTextColor);
+  text-align: left;
+  /* Default alignment for most columns */
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: #333;
+  text-align: left;
+  /* Ensure the header aligns with the data */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding-left: 15px;
+}
+
+.trade-timestamp-column-data {
+  width: 18%;
+  text-align: left;
+  padding: 0.75rem 0.1rem;
+  color: var(--defaultTextColor);
+  /* Default alignment for most columns */
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* .timestamp-column-header { */
+/*   width: 10%; */
+/*   /* Adjust width to fit the timestamp properly */
+/*   text-align: center; */
+/*   /* Align timestamp to the left */
+/* } */
+
+/* .timestamp-column-data { */
+/*   width: 10%; */
+/*   /* Adjust width to fit the timestamp properly */
+/*   text-align: left; */
+/*   /* Align timestamp to the left */
+/* } */
+
+/* .trade-table-header:nth-child(2), */
+/* .trade-table-data:nth-child(2) { */
+/*   text-align: center; */
+/*   /* Center align Quantity column */
+/*   width: 10%; */
+/*   /* Reduce the width for Quantity */
+/* } */
+
+/* .trade-table-header, */
+/* .trade-table-data { */
+/*   width: 15%; */
+/*   /* Default width for most columns */
+/* } */
+
+/* .trade-table-header:nth-child(5), */
+/* .trade-table-data:nth-child(5) { */
+/*   text-align: center; */
+/*   /* Center align Quantity column */
+/*   width: 10%; */
+/*   /* Reduce the width for Quantity */
+/* } */
+
+/* .trade-table-header:nth-child(6), */
+/* .trade-table-data:nth-child(6), */
+/* .trade-table-header:nth-child(7), */
+/* .trade-table-data:nth-child(7) { */
+/*   text-align: right; */
+/*   /* Align Price and Cost to the right */
+/*   width: 10%; */
+/*   /* Adjust width for Price and Cost */
+/* } */
+
+.trade-table-row {
+  border-bottom: 1px solid #434651;
+}
+
+
+
+/* Pagination Buttons */
+.trade-pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px;
+  color: white;
+}
+
+.trade-pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  color: grey;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.trade-pagination button:hover {
+  color: white;
+}

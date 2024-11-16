@@ -1,0 +1,111 @@
+@import url('../../../App.css');
+
+.backtest-filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--defaultSecondaryColor);
+  /* Adjust as needed */
+  color: white;
+  position: relative;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.filter-bar-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.current-backtest-name {
+  font-size: 16px;
+  padding-top: 5px;
+  text-transform: uppercase;
+}
+
+.view-button {
+  margin-left: auto;
+  /* Pushes the button to the right */
+  padding: 5px 10px;
+  background-color: #333;
+  /* Makes the button background match the FilterBar */
+  color: white;
+  border: none;
+  /* Border to make it visible */
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.view-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  /* Adds a subtle hover effect */
+}
+
+.modal-overlay {
+  position: fixed;
+  /* Ensure the overlay covers the entire viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  /* Dark overlay background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* Set to a high number to make sure it's above everything else */
+}
+
+.modal-content {
+  background: rgba(51, 51, 51, 0.9);
+  /* Dark background for better visibility */
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* z-index: 10000; */
+  /* Ensure it's higher than the overlay */
+}
+
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.modal-row {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Light background for visibility */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  /* Row separator */
+}
+
+.modal-row:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  /* Hover effect for table rows */
+}
+
+.modal-cell {
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+.modal-close-button {
+  margin-top: 20px;
+  padding: 5px 10px;
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modal-close-button:hover {
+  background-color: #777;
+}

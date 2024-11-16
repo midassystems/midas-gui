@@ -1,0 +1,90 @@
+@import url("../../../App.css");
+
+.remaining-articles {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--defaultSecondaryColor);
+  margin-left: 10px;
+  margin-right:10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.article-teaser {
+  display: flex;
+  width: 98%;
+  padding: 10px;
+  margin-bottom: 20px;
+  /* Aligns items vertically center */
+  align-items: center;
+  /* Separates each article visually */
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+  /* overflow-x: auto; */
+}
+
+.article-teaser img {
+  /* Fixed width for images */
+  width: 200px;
+  /* Fixed height for images */
+  height: 100px;
+  /* Ensure images cover the area nicely */
+  object-fit: cover;
+  /* Optional rounded corners for images */
+  border-radius: 8px;
+  /* Space between image and text */
+  margin-right: 20px;
+}
+
+.article-text {
+  display: flex;
+  /* Stack text vertically */
+  flex-direction: column;
+  /* Center text vertically */
+  justify-content: center;
+  /* Allows text block to take remaining space */
+  flex-grow: 1;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Adds ellipsis for long text */
+}
+
+.article-text h1,
+.article-text p {
+  /* Removes default margins */
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.article-text h1 {
+  /* Adjust font size as needed */
+  font-size: 1.2rem;
+  /* Text color for headline */
+  color: var(--defaultTextColor);
+  /* Space between headline and date */
+  margin-bottom: 5px;
+}
+
+.article-text p {
+  /* Adjust font size for date and teaser */
+  font-size: 0.9rem;
+  /* Lighter text color for date/teaser */
+  color: gray;
+}
+
+.news-list-load-more {
+  margin: 5px;
+  background-color: transparent;
+  color: gray;
+  border: none;
+  cursor: pointer;
+}
+
+.news-list-load-more:hover {
+  color: white;
+
+}

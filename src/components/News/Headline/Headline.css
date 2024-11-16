@@ -1,0 +1,57 @@
+@import url("../../../App.css");
+
+.headlines-bar {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--defaultSecondaryColor);
+  margin: 0;
+  border-radius: 8px;
+  height: 100%;
+  /* Ensure the headlines bar takes full height */
+}
+
+.story-container {
+  position: relative;
+  flex-grow: 1;
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  /* Make sure the container takes the full height */
+  max-height: 425px;
+  /* Optional: restrict the height */
+  cursor: pointer;
+}
+
+.story-container img {
+  width: 100%;
+  height: 100%;
+  /* Ensure the image takes full height */
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+.story-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  width: calc(100% - 20px);
+}
+
+.story-overlay h1 {
+  font-size: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.story-overlay p {
+  font-size: 1rem;
+}
