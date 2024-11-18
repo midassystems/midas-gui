@@ -31,10 +31,10 @@ midas-release
 # *.png
 .env
 .env.dev
-*.gz
+# *.gz
 *.txt
 /zextra
-/midas-release
+/midas-gui-release
 tests/venv
 *.bin
 *.dbn
