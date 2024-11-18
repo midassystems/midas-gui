@@ -3,6 +3,26 @@
 version = 3
 
 [[package]]
+name = "Midas"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "bigdecimal",
+ "chrono",
+ "mbn",
+ "midas_client",
+ "reqwest 0.11.27",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-shell",
+ "thiserror",
+ "tokio",
+ "toml 0.8.19",
+]
+
+[[package]]
 name = "addr2line"
 version = "0.24.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2254,26 +2274,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "488016bfae457b036d996092f6cb448677611ce4449e970ceaf42695203f218a"
 dependencies = [
  "autocfg",
-]
-
-[[package]]
-name = "midas-gui"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "bigdecimal",
- "chrono",
- "mbn",
- "midas_client",
- "reqwest 0.11.27",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-shell",
- "thiserror",
- "tokio",
- "toml 0.8.19",
 ]
 
 [[package]]

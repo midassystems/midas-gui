@@ -12,13 +12,13 @@ mkdir -p ~/.config/midas
 cp config/* ~/.config/midas
 
 # Check if the Tauri app bundle exists
-TAURI_APP_BUNDLE="bundle/macos/midas-gui.app"
+TAURI_APP_BUNDLE="bundle/macos/Midas.app"
 
 if [ -d "$TAURI_APP_BUNDLE" ]; then
 	echo "Installing the Midas GUI app..."
 
 	# Copy the .app bundle to /Applications on macOS
-	cp -r "$TAURI_APP_BUNDLE" /Applications/midas-gui.app
+	cp -r "$TAURI_APP_BUNDLE" /Applications/Midas.app
 	echo "Dashboard installed to /Applications on macOS."
 else
 	echo "Tauri app bundle not found in $TAURI_APP_BUNDLE. Please build the Tauri app first."
