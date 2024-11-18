@@ -26,7 +26,7 @@ package:
 	cp -r config/* midas-release/config/
 	
 	# Installation script
-	cp install.sh midas-release/
+	cp ./scripts/install.sh midas-release/
 	cp README.md midas-release/
 
 	# Create a tar.gz archive of the release
