@@ -3,7 +3,7 @@
 echo "Installing Midas gui..."
 
 # Make binaries executable
-chmod +x /usr/local/bin/midas-shell
+# chmod +x /usr/local/bin/midas-shell
 
 # Ensure ~/.config/midas directory exists
 mkdir -p ~/.config/midas
