@@ -112,6 +112,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "86fdf8605db99b54d3cd748a44c6d04df638eb5dafb219b135d0149bd0db01f6"
 
 [[package]]
+name = "assert-json-diff"
+version = "2.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "47e4f2b81832e72834d7518d8487a0396a28cc408186a2e8854c0f98011faf12"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "async-compression"
 version = "0.4.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -521,6 +531,16 @@ dependencies = [
  "core-graphics-types",
  "libc",
  "objc",
+]
+
+[[package]]
+name = "colored"
+version = "2.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cbf2150cce219b664a8a70df7a1f933836724b503f8a413af9365b4dcc4d90b8"
+dependencies = [
+ "lazy_static",
+ "windows-sys 0.48.0",
 ]
 
 [[package]]
@@ -1785,6 +1805,7 @@ dependencies = [
  "http 1.1.0",
  "http-body 1.0.1",
  "httparse",
+ "httpdate",
  "itoa 1.0.11",
  "pin-project-lite",
  "smallvec",
@@ -2234,7 +2255,7 @@ checksum = "0e7465ac9959cc2b1404e8e2367b43684a6d13790fe23056cc8c6c5a6b7bcb94"
 [[package]]
 name = "mbn"
 version = "0.1.0"
-source = "git+https://github.com/anthonyb8/mbn.git?branch=main#cd4ee19feddf53a2d2bdac64dde3101d95d1c04f"
+source = "git+https://github.com/anthonyb8/mbn.git?branch=main#b97d61ee0cb6f463fd8ed8b1591c075670fe28dc"
 dependencies = [
  "bigdecimal",
  "chrono",
@@ -2246,6 +2267,7 @@ dependencies = [
  "serde_json",
  "sqlx",
  "thiserror",
+ "time",
  "tokio",
  "tracing",
  "tracing-subscriber",
@@ -2279,15 +2301,17 @@ dependencies = [
 [[package]]
 name = "midas_client"
 version = "0.1.0"
-source = "git+https://github.com/anthonyb8/midas-rs.git?branch=main#95ddda5cafe62fdaf0038cef1401bc1ba0262520"
+source = "git+https://github.com/anthonyb8/midas-rs.git?branch=main#5ba87172f5299a51d545a76f4fff6716aac55fa2"
 dependencies = [
  "anyhow",
+ "async-trait",
  "axum",
  "chrono",
  "derive_more 1.0.0",
  "dotenv",
  "futures-util",
  "mbn",
+ "mockito",
  "reqwest 0.12.8",
  "serde",
  "serde_json",
@@ -2327,6 +2351,30 @@ dependencies = [
  "libc",
  "wasi 0.11.0+wasi-snapshot-preview1",
  "windows-sys 0.52.0",
+]
+
+[[package]]
+name = "mockito"
+version = "1.6.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "652cd6d169a36eaf9d1e6bce1a221130439a966d7f27858af66a33a66e9c4ee2"
+dependencies = [
+ "assert-json-diff",
+ "bytes",
+ "colored",
+ "futures-util",
+ "http 1.1.0",
+ "http-body 1.0.1",
+ "http-body-util",
+ "hyper 1.4.1",
+ "hyper-util",
+ "log",
+ "rand 0.8.5",
+ "regex",
+ "serde_json",
+ "serde_urlencoded",
+ "similar",
+ "tokio",
 ]
 
 [[package]]
@@ -3904,6 +3952,12 @@ name = "simd-adler32"
 version = "0.3.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d66dc143e6b11c1eddc06d5c423cfc97062865baf299914ab64caa38182078fe"
+
+[[package]]
+name = "similar"
+version = "2.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1de1d4f81173b03af4c0cbed3c898f6bff5b870e4a7f5d6f4057d62a7a4b686e"
 
 [[package]]
 name = "siphasher"

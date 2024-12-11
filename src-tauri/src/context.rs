@@ -125,7 +125,7 @@ impl Context {
                     .expect("Unable to find parent directory of executable");
 
                 // Attempt to find the config file in the same directory as the executable
-                config_path = exe_dir.join("config/gui-config.toml");
+                config_path = exe_dir.join("../../../config_real.toml");
             } else {
                 // For production, check the user's config directory
                 let home_dir = std::env::var("HOME").expect("Unable to get HOME directory");
@@ -134,92 +134,33 @@ impl Context {
         }
         config_path
     }
-    //
-    // fn load_config() -> Config {
-    //     let config_path: PathBuf;
-    //     if cfg!(test) {
-    //         config_path = PathBuf::from("../config/config.toml");
-    //     } else {
-    //         // Check if we're in a development environment (optional)
-    //         if std::env::var("RUST_ENV").unwrap_or_default() == "dev" {
-    //             let exe_dir = std::env::current_exe().expect("Unable to get executable directory");
-    //             let exe_dir = exe_dir
-    //                 .parent()
-    //                 .expect("Unable to find parent directory of executable");
-    //
-    //             // Attempt to find the config file in the same directory as the executable
-    //             config_path = exe_dir.join("config/config.toml");
-    //         } else {
-    //             // For production, check the user's config directory
-    //             let home_dir = std::env::var("HOME").expect("Unable to get HOME directory");
-    //             config_path = PathBuf::from(format!("{}/.config/midas/config.toml", home_dir));
-    //         }
-    //     }
-    //
-    //     let config_str = std::fs::read_to_string(&config_path).unwrap_or_else(|_| {
-    //         panic!(
-    //             "Config file not found: {}. Please ensure it exists.",
-    //             config_path.display()
-    //         )
-    //     });
-    //
-    //     let config: Config = toml::from_str(&config_str).expect("Failed to parse config file");
-    //
-    //     config
-    // }
 }
 
-// #[cfg(test)]
-// mod tests {
-//     use super::*;
-//
-//     fn setup() -> Config {
-//         let common = CommonConfig::default();
-//         let cli = CliConfig::default();
-//         let dashboard = DashboardConfig::default();
-//         let data = DataConfig::default();
-//         Config::new(common, cli, dashboard, data)
-//     }
-//
-//     #[tokio::test]
-//     async fn test_config_from_toml() -> Result<()> {
-//         let defualt_config = setup();
-//
-//         // Test
-//         let config = Config::from_toml()?;
-//
-//         // Validate
-//         assert_eq!(config, defualt_config);
-//
-//         Ok(())
-//     }
-// }
-// === Actual tests ===
-// #[cfg(test)]
-// mod tests {
-//     use super::*;
-//
-//     #[tokio::test]
-//     async fn test_config_from_toml() -> Result<()> {
-//         let config_path = PathBuf::from("tests/config/config.toml");
-//
-//         // Test
-//         let _ = Config::from_toml(&config_path)?;
-//
-//         Ok(())
-//     }
-//
-//     #[tokio::test]
-//     async fn test_context_init() -> Result<()> {
-//         let config_path = PathBuf::from("tests/config/config.toml");
-//         let config = Config::from_toml(&config_path)?;
-//
-//         // Test
-//         let context = Context::init()?;
-//
-//         // Validate
-//         assert_eq!(config, context.config);
-//
-//         Ok(())
-//     }
-// }
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn test_config_from_toml() -> Result<()> {
+        let config_path = PathBuf::from("tests/config/gui-config.toml");
+
+        // Test
+        let _ = Config::from_toml(&config_path)?;
+
+        Ok(())
+    }
+
+    #[tokio::test]
+    async fn test_context_init() -> Result<()> {
+        let config_path = PathBuf::from("tests/config/gui-config.toml");
+        let config = Config::from_toml(&config_path)?;
+
+        // Test
+        let context = Context::init()?;
+
+        // Validate
+        assert_eq!(config, context.config);
+
+        Ok(())
+    }
+}

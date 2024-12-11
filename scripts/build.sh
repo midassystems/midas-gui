@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dev() {
-	yarn tauri dev
+	RUST_ENV=dev yarn tauri dev
 }
 
 prod() {
