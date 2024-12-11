@@ -1,0 +1,15 @@
+[common]
+log_level = "info"
+historical_url = "http://127.0.0.1:8080"
+trading_url = "http://127.0.0.1:8081"
+api_key = "api_key"
+
+[dashboard]
+window_title = "Dashboard"
+default_theme = "dark"
+refresh_interval = 60
+finnhub_key = "api_key"
+finnhub_url =  "https://finnhub.io/api/v1/news?category=general&token=yourapikey"
+num_charts = 4
+chart_symbols =["FOREXCOM:SPXUSD", "CBOT:ZM1!", "CME:HE1!", "CBOT:ZC1!"]
+

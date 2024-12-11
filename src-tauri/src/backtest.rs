@@ -41,17 +41,17 @@ pub async fn get_backtest_list(
     }
 
     // Fetch backtest list from the API client only if the list is empty
-    let response = client.list_backtest().await.map_err(|e| e.to_string())?;
+    let mut response = client.list_backtest().await.map_err(|e| e.to_string())?;
 
-    match response.data {
-        Some(mut new_data) => {
+    match response.status.as_str() {
+        "success" => {
             // Append new data to the current list
-            list.append(&mut new_data);
+            list.append(&mut response.data);
 
             // Return the updated list
             Ok(Some(list.clone()))
         }
-        None => Ok(None),
+        _ => Ok(None),
     }
 }
 
@@ -64,19 +64,19 @@ pub async fn get_backtest_by_id(
 ) -> Result<Option<DisplayBacktestData>> {
     match client.get_backtest(&id).await {
         Ok(response) => {
-            match response.data {
-                Some(data) => {
+            match response.status.as_str() {
+                "success" => {
                     let mut new_id = current_id.lock().await;
                     *new_id = Some(id);
 
-                    let display_data: DisplayBacktestData = data.into();
+                    let display_data: DisplayBacktestData = response.data[0].clone().into();
 
                     let mut cache = backtest_cache.lock().await;
                     cache.insert(id, display_data.clone());
 
                     Ok(Some(display_data))
                 }
-                None => Ok(None), // Explicitly returning None if no data is present
+                _ => Ok(None), // Explicitly returning None if no data is present
             }
         }
         Err(err) => Err(format!("Failed to get backtest id ({}): {}", id, err)),

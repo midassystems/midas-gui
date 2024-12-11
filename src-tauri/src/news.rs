@@ -3,7 +3,7 @@ use crate::error::Result;
 use chrono::serde::ts_seconds::deserialize as from_ts;
 use chrono::{DateTime, Utc};
 use reqwest::Client;
-use serde::{Deserialize, Serialize}; //
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use tauri::State;
 use tokio::sync::Mutex;
@@ -11,7 +11,7 @@ use tokio::sync::Mutex;
 // A struct to hold the cached news and its last update time
 #[derive(Debug, Clone)]
 pub struct NewsCache {
-    pub items: HashMap<i32, NewsItem>, // Now using HashMap to store NewsItems by id
+    pub items: HashMap<i32, NewsItem>,
     pub last_updated: Option<i64>,
 }
 
