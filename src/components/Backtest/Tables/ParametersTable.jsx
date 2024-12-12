@@ -1,6 +1,5 @@
 import React from "react";
 import "./ParametersTable.css"; 
-import {convertUnixNanosecondsToISO} from "../../../utils/unix_time";
 
 /**
  * Displays a bar with key parameters of a backtest, including start and end dates, symbols, and capital.
@@ -32,16 +31,10 @@ function ParametersTable({ parameters }) {
                         <td className='parameters-table-data'>{parameters.schema}</td>
                     </tr>
                     <tr className='parameters-table-row'>
-                        <td className='parameters-table-data'>TRAIN START</td>
-                        <td className='parameters-table-data'>{parameters.train_start}</td>
-                        <td className='parameters-table-data'>TRAIN END</td>
-                        <td className='parameters-table-data'>{parameters.train_end}</td>
-                    </tr>
-                    <tr className='parameters-table-row'>
-                        <td className='parameters-table-data'>TEST START</td>
-                        <td className='parameters-table-data'>{parameters.test_start}</td>
-                        <td className='parameters-table-data'>TEST END</td>
-                        <td className='parameters-table-data'>{parameters.test_end}</td>
+                        <td className='parameters-table-data'>START</td>
+                        <td className='parameters-table-data'>{parameters.start}</td>
+                        <td className='parameters-table-data'>END</td>
+                        <td className='parameters-table-data'>{parameters.end}</td>
                     </tr>
                 </tbody>
             </table>

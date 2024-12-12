@@ -125,10 +125,8 @@ pub struct DisplayParameters {
     pub capital: i64,
     pub schema: String,
     pub data_type: String,
-    pub train_start: String,
-    pub train_end: String,
-    pub test_start: String,
-    pub test_end: String,
+    pub start: String,
+    pub end: String,
     pub tickers: Vec<String>,
 }
 
@@ -139,10 +137,8 @@ impl From<mbn::backtest::Parameters> for DisplayParameters {
             capital: x.capital,
             schema: x.schema,
             data_type: x.data_type,
-            train_start: format_timestamp(x.train_start),
-            train_end: format_timestamp(x.train_end),
-            test_start: format_timestamp(x.test_start),
-            test_end: format_timestamp(x.test_end),
+            start: format_timestamp(x.start),
+            end: format_timestamp(x.end),
             tickers: x.tickers,
         }
     }
