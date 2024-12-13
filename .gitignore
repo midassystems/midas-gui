@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 config_real.toml
 midas-release
-.vscode
+# .vscode
 /target
 /target
 *.txt

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dev() {
+	yarn install
 	RUST_ENV=dev yarn tauri dev
 }
 
