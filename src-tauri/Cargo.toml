@@ -29,5 +29,5 @@ chrono = { version = "0.4", features = ["serde"] }
 tokio = { version = "1", features = ["full"] }
 bigdecimal = { version = "0.3", features = ["serde"] }
 toml = "0.8.19"
-mbn = { git = "https://github.com/anthonyb8/mbn.git", branch = "main" }
-midas_client = { git="https://github.com/anthonyb8/midas-rs.git", branch ="main" }
+mbn = { git = "https://github.com/midassystems/mbn.git", branch = "main" }
+midas_client = { git="https://github.com/midassystems/midas-rs.git", branch ="main" }
