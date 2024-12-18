@@ -21,6 +21,7 @@ const fieldConfig = {
   avg_gain_percent: { label: 'Avg Gain Percent', format: 'percentage' },
   avg_loss_percent: { label: 'Avg Loss Percent', format: 'percentage' },
   total_return: { label: 'Total Return', format: 'percentage' },
+  annualized_return: { label: 'Annualized Return', format: 'percentage' },
   daily_standard_deviation_percentage: { label: 'Daily Standard Deviation', format: 'percentage' },
   annual_standard_deviation_percentage: { label: 'Annual Standard Deviation', format: 'percentage' },
   max_drawdown_percentage_daily: { label: 'Max Drawdown Daily', format: 'percentage' },
@@ -43,8 +44,8 @@ function formatValue(key, value) {
   switch (formatType) {
     case 'percentage':
       return `${(value * 100).toFixed(4)}%`;
-    case 'currency':
-      return `$${value.toFixed(2).toLocaleString()}`;
+  case 'currency':
+    return `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     case 'ratio':
       return value.toFixed(4);
     case 'integer':

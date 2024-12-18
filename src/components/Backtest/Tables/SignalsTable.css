@@ -36,7 +36,7 @@
   text-transform: uppercase;
 }
 
-.signal-table-header:nth-child(5) {
+.signal-table-header:nth-child(6) {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }

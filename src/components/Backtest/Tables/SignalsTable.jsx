@@ -19,7 +19,8 @@ function SignalsTable({ signals_data }) {
             <th className='signal-table-header'>Leg ID</th>
             <th className='signal-table-header'>Symbol</th>
             <th className='signal-table-header'>Direction</th>
-            <th className='signal-table-header'>Trade Allocation</th>
+            <th className='signal-table-header'>Weight</th>
+            <th className='signal-table-header'>Quantity</th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +37,7 @@ function SignalsTable({ signals_data }) {
                   <td className='signal-table-data'>{instruction.ticker}</td>
                   <td className='signal-table-data'>{instruction.action}</td>
                   <td className='signal-table-data'>{instruction.weight}</td>
+                  <td className='signal-table-data'>{instruction.quantity}</td>
                 </tr>
               ))}
             </React.Fragment>

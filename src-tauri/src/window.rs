@@ -28,7 +28,7 @@ pub fn store_cookies(app: AppHandle<Wry>, cookies: String) {
 pub fn seperate_window(app_handle: AppHandle, url: String, window_label: String) -> Result<()> {
     // Check if a window with the label already exists
     if app_handle.get_webview_window(&window_label).is_some() {
-        println!("Window with label '{}' already exists!", window_label);
+        // println!("Window with label '{}' already exists!", window_label);
         return Ok(()); // Exit early if the window exists
     }
 

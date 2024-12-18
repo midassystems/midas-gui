@@ -21,7 +21,9 @@ function TradeTable({ trades_data }) {
             <th className='trade-table-header'>Ticker</th>
             <th className='trade-table-header'>Quantity</th>
             <th className='trade-table-header'>Price</th>
+            <th className='trade-table-header'>Value</th>
             <th className='trade-table-header'>Cost</th>
+            <th className='trade-table-header'>Fees</th>
             <th className='trade-table-header'>Action</th>
           </tr>
         </thead>
@@ -33,8 +35,18 @@ function TradeTable({ trades_data }) {
               <td className='trade-table-data'>{trade.leg_id}</td>
               <td className='trade-table-data'>{trade.ticker}</td>
               <td className='trade-table-data'>{trade.quantity}</td>
-              <td className='trade-table-data'>{`$${trade.avg_price.toFixed(2).toLocaleString()}`}</td>
-              <td className='trade-table-data'>{`$${trade.trade_value.toFixed(2).toLocaleString()}`}</td>
+              <td className='trade-table-data'>
+                {`$${trade.avg_price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 5 })}`}
+              </td>
+              <td className='trade-table-data'>
+                {`$${trade.trade_value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+              </td>
+              <td className='trade-table-data'>
+                {`$${trade.trade_cost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+              </td>
+              <td className='trade-table-data'>
+                {`$${trade.fees.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+              </td>
               <td className='trade-table-data'>{trade.action}</td>
             </tr>
 
