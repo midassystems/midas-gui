@@ -97,8 +97,6 @@ pub struct DisplayBacktestData {
 
 impl From<mbn::backtest::BacktestData> for DisplayBacktestData {
     fn from(data: mbn::backtest::BacktestData) -> Self {
-        println!("{:?}", DisplayStaticStats::from(data.static_stats.clone()));
-
         DisplayBacktestData {
             backtest_name: data.backtest_name,
             parameters: DisplayParameters::from(data.parameters),
@@ -167,35 +165,34 @@ impl From<mbn::backtest::TimeseriesStats> for DisplayTimeseriesStats {
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct DisplayStaticStats {
-    pub total_trades: i32,
+    pub beginning_equity: f64,   // Scaled by 1e9
+    pub ending_equity: f64,      // Scaled by 1e9
+    pub net_profit: f64,         // Scaled by 1e9
+    pub total_fees: f64,         // Scaled by 1e9
+    pub avg_gain: f64,           // Scaled by 1e9
+    pub avg_gain_percent: f64,   // Scaled by 1e9
+    pub avg_loss: f64,           // Scaled by 1e9
+    pub avg_loss_percent: f64,   // Scaled by 1e9
+    pub avg_profit: f64,         // Scaled by 1e9
+    pub avg_profit_percent: f64, // Scaled by 1e9
     pub total_winning_trades: i32,
     pub total_losing_trades: i32,
-    pub avg_profit: f64,                           // Scaled by 1e9
-    pub avg_profit_percent: f64,                   // Scaled by 1e9
-    pub avg_gain: f64,                             // Scaled by 1e9
-    pub avg_gain_percent: f64,                     // Scaled by 1e9
-    pub avg_loss: f64,                             // Scaled by 1e9
-    pub avg_loss_percent: f64,                     // Scaled by 1e9
+    pub total_trades: i32,
     pub profitability_ratio: f64,                  // Scaled by 1e9
     pub profit_factor: f64,                        // Scaled by 1e9
     pub profit_and_loss_ratio: f64,                // Scaled by 1e9
-    pub total_fees: f64,                           // Scaled by 1e9
-    pub net_profit: f64,                           // Scaled by 1e9
-    pub beginning_equity: f64,                     // Scaled by 1e9
-    pub ending_equity: f64,                        // Scaled by 1e9
     pub total_return: f64,                         // Scaled by 1e9
+    pub annualized_return: f64,                    // Scaled by 1e9
     pub daily_standard_deviation_percentage: f64,  // Scaled by 1e9
     pub annual_standard_deviation_percentage: f64, // Scaled by 1e9
-    pub max_drawdown_percentage_period: f64,       // Scaled by 1e9
     pub max_drawdown_percentage_daily: f64,        // Scaled by 1e9
+    pub max_drawdown_percentage_period: f64,       // Scaled by 1e9
     pub sharpe_ratio: f64,                         // Scaled by 1e9
     pub sortino_ratio: f64,                        // Scaled by 1e9
 }
 
 impl From<mbn::backtest::StaticStats> for DisplayStaticStats {
     fn from(stat: mbn::backtest::StaticStats) -> Self {
-        println!("{:?}", stat);
-
         DisplayStaticStats {
             total_trades: stat.total_trades,
             total_winning_trades: stat.total_winning_trades,
@@ -214,6 +211,7 @@ impl From<mbn::backtest::StaticStats> for DisplayStaticStats {
             beginning_equity: price_scale(stat.beginning_equity),
             ending_equity: price_scale(stat.ending_equity),
             total_return: price_scale(stat.total_return),
+            annualized_return: price_scale(stat.annualized_return),
             daily_standard_deviation_percentage: price_scale(
                 stat.daily_standard_deviation_percentage,
             ),
@@ -221,7 +219,7 @@ impl From<mbn::backtest::StaticStats> for DisplayStaticStats {
                 stat.annual_standard_deviation_percentage,
             ),
             max_drawdown_percentage_period: price_scale(stat.max_drawdown_percentage_period),
-            max_drawdown_percentage_daily: price_scale(stat.daily_standard_deviation_percentage),
+            max_drawdown_percentage_daily: price_scale(stat.max_drawdown_percentage_daily),
             sharpe_ratio: price_scale(stat.sharpe_ratio),
             sortino_ratio: price_scale(stat.sortino_ratio),
         }
@@ -238,6 +236,7 @@ pub struct DisplayTrade {
     pub quantity: f64,
     pub avg_price: f64,
     pub trade_value: f64,
+    pub trade_cost: f64,
     pub action: String,
     pub fees: f64,
 }
@@ -253,6 +252,7 @@ impl From<mbn::backtest::Trades> for DisplayTrade {
             quantity: price_scale(trade.quantity),
             avg_price: price_scale(trade.avg_price),
             trade_value: price_scale(trade.trade_value),
+            trade_cost: price_scale(trade.trade_cost),
             action: trade.action,
             fees: price_scale(trade.fees),
         }
