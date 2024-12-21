@@ -98,9 +98,9 @@ pub struct DisplayBacktestData {
 impl From<mbn::backtest::BacktestData> for DisplayBacktestData {
     fn from(data: mbn::backtest::BacktestData) -> Self {
         DisplayBacktestData {
-            backtest_name: data.backtest_name,
-            parameters: DisplayParameters::from(data.parameters),
-            static_stats: DisplayStaticStats::from(data.static_stats),
+            backtest_name: data.metadata.backtest_name,
+            parameters: DisplayParameters::from(data.metadata.parameters),
+            static_stats: DisplayStaticStats::from(data.metadata.static_stats),
             period_timeseries_stats: data
                 .period_timeseries_stats
                 .into_iter()
