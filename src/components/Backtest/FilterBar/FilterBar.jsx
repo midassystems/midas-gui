@@ -1,38 +1,14 @@
-import './FilterBar.css';
-import React, { useState } from 'react';
+import "./FilterBar.css";
+import React, { useState } from "react";
+import { IoRefreshOutline } from "react-icons/io5";
+import Modal from "./Modal.jsx";
 
-// Define a simple modal component for selecting backtests
-const Modal = ({ isOpen, onClose, groupedSummaries, onSelectBacktest }) => {
-  if (!isOpen) return null; // Do not render if the modal is not open
-
-  return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <h3>Select Backtest</h3>
-        <table className="modal-table">
-          <tbody>
-            {groupedSummaries.map((backtest, index) => (
-              <tr key={index} className="modal-row" onClick={() => {
-                onSelectBacktest(backtest[0]);
-                onClose();
-              }}>
-                <td className="modal-cell">
-                  {backtest[1]}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <button onClick={onClose} className="modal-close-button">
-          Close
-        </button>
-      </div>
-    </div>
-  );
-};
-
-
-function FilterBar({ groupedSummaries, currentBacktestName, updateBacktestId }) {
+const FilterBar = ({
+  groupedSummaries,
+  currentBacktestName,
+  updateBacktestId,
+  refreshBacktestList,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -53,6 +29,12 @@ function FilterBar({ groupedSummaries, currentBacktestName, updateBacktestId }) 
         <div className="current-backtest-name">
           {currentBacktestName || "None Selected"}
         </div>
+        <button
+          className="backtest-refresh-button"
+          onClick={() => refreshBacktestList(true)}
+        >
+          <IoRefreshOutline className="icon" />
+        </button>
         <button className="view-button" onClick={handleOpenModal}>
           View
         </button>
@@ -67,6 +49,6 @@ function FilterBar({ groupedSummaries, currentBacktestName, updateBacktestId }) 
       />
     </div>
   );
-}
+};
 
 export default FilterBar;
