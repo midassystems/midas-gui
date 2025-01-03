@@ -1,0 +1,113 @@
+@import url('../../../App.css');
+
+.modal-overlay {
+  position: fixed;
+  /* Ensure the overlay covers the entire viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  /* Dark overlay background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* Set to a high number to make sure it's above everything else */
+}
+
+
+
+.modal-content {
+  background: rgba(51, 51, 51, 0.9);
+  /* Dark background for better visibility */
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* z-index: 10000; */
+  /* Ensure it's higher than the overlay */
+}
+
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.modal-row {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Light background for visibility */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  /* Row separator */
+}
+
+.modal-row:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  /* Hover effect for table rows */
+}
+
+.modal-cell {
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+.modal-close-button {
+  margin-top: 20px;
+  padding: 5px 10px;
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modal-close-button:hover {
+  background-color: #777;
+}
+
+.modal-back-button {
+  margin-top: 20px;
+  padding: 5px 10px;
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.modal-back-button:hover {
+  background-color: #777;
+}
+.modal-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Add some spacing between arrows and text */
+}
+.modal-page-text {
+  font-size: 12px;
+  margin-top:20px;
+}
+
+.modal-arrow-button {
+  background-color: transparent;
+  border: none;
+}
+
+.modal-arrow-icons {
+  margin-top: 20px;
+  padding: 5px 10px;
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modal-arrow-icons:hover {
+  background-color: #777;
+}
+
