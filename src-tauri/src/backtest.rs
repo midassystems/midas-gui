@@ -1,5 +1,4 @@
 use crate::error::Result;
-// use bigdecimal::ToPrimitive;
 use chrono::DateTime;
 use midas_client::trading::Trading;
 use serde::{Deserialize, Serialize};
@@ -31,22 +30,35 @@ pub async fn get_current_backtest(
 pub async fn get_backtest_list(
     backtest_list: State<'_, Mutex<BacktestList>>,
     client: State<'_, Arc<Trading>>,
+    refresh: bool,
+) -> Result<Option<BacktestList>> {
+    // Lock the backtest_list to check if it's empty
+    let list = backtest_list.lock().await;
+
+    // If the list already has data, return it without making the API call
+    if !list.is_empty() && !refresh {
+        return Ok(Some(list.clone()));
+    }
+
+    drop(list);
+    refresh_backtest_list(backtest_list, client).await
+}
+
+#[tauri::command]
+pub async fn refresh_backtest_list(
+    backtest_list: State<'_, Mutex<BacktestList>>,
+    client: State<'_, Arc<Trading>>,
 ) -> Result<Option<BacktestList>> {
     // Lock the backtest_list to check if it's empty
     let mut list = backtest_list.lock().await;
 
-    // If the list already has data, return it without making the API call
-    if !list.is_empty() {
-        return Ok(Some(list.clone()));
-    }
-
     // Fetch backtest list from the API client only if the list is empty
-    let mut response = client.list_backtest().await.map_err(|e| e.to_string())?;
+    let response = client.list_backtest().await.map_err(|e| e.to_string())?;
 
     match response.status.as_str() {
         "success" => {
-            // Append new data to the current list
-            list.append(&mut response.data);
+            // Replace the contents of the list with the new data
+            *list = response.data;
 
             // Return the updated list
             Ok(Some(list.clone()))

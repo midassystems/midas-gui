@@ -11,7 +11,7 @@ use backtest::{
     CurrentBacktestId,
 };
 use context::Context;
-use live::{getSessionData, getSessionList};
+use live::{get_session_data, get_session_list};
 use market::{load_chart_layout, load_layout, update_chart_layout, Charts};
 use news::{fetch_news, NewsCache};
 use tauri::Manager;
@@ -35,8 +35,8 @@ pub fn run() {
             get_backtest_list,
             get_backtest_by_id,
             get_current_backtest,
-            getSessionList,
-            getSessionData,
+            get_session_list,
+            get_session_data,
             fetch_news,
             load_layout,
             update_chart_layout,
