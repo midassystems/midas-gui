@@ -1,7 +1,6 @@
 #!/bin/bash
 
 test_backend() {
-	echo "Building in development mode..."
 	if cd src-tauri; then
 		cargo test -- --nocapture
 	fi

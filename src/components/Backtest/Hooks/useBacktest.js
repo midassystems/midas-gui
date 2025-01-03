@@ -1,6 +1,6 @@
-import log from 'loglevel';
-import { useState, useEffect } from 'react';
-import { invoke } from '@tauri-apps/api/core';
+import log from "loglevel";
+import { useState, useEffect } from "react";
+import { invoke } from "@tauri-apps/api/core";
 
 /**
  * Custom hook for managing the dashboard state, including loading backtests,
@@ -14,6 +14,22 @@ export const useBacktest = () => {
   const [currentBacktestId, setCurrentBacktestId] = useState(null);
   const [currentBacktestData, setCurrentBacktestData] = useState({});
 
+  const setBacktest = async (list) => {
+    try {
+      // Get cached backtest if one
+      const id = await invoke("get_current_backtest");
+
+      if (!id) {
+        if (list.length > 0) {
+          updateBacktestId(list[0][0]); // Set first backtest ID if no current ID
+        }
+      } else {
+        updateBacktestId(id); // If current backtest ID exists, update it
+      }
+    } catch (error) {
+      log.error("Error fetching current backtest:", error);
+    }
+  };
 
   const updateBacktestId = async (newId) => {
     setCurrentBacktestId(newId);
@@ -31,49 +47,51 @@ export const useBacktest = () => {
     }
   };
 
+  const refreshBacktestList = async (refresh) => {
+    try {
+      // Get list backtests
+      const data = await invoke("get_backtest_list", { refresh });
+
+      if (!data || data.length === 0) {
+        // Handle the case where data is None or an empty list
+        log.info("No backtest summaries available.");
+        return [];
+      } else {
+        // Set the fetched backtest list
+        setBacktestList(data);
+        log.info("Summaries fetched and grouped successfully.");
+        return data;
+      }
+    } catch (error) {
+      log.error("Error fetching backtest list:", error);
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
         // Get list backtests
-        const data = await invoke("get_backtest_list");
-
-        if (!data || data.length === 0) {
-          // Handle the case where data is None or an empty list
-          log.info('No backtest summaries available.');
-        } else {
-          // Set the fetched backtest list
-          setBacktestList(data);
-          log.info('Summaries fetched and grouped successfully.');
-        }
+        const list = await refreshBacktestList(false);
 
         // Get current backtest id & data
-        const id = await invoke("get_current_backtest");
-
-        if (!id) {
-          console.log("Need to fetch list");
-          if (data.length > 0) {
-            console.log("backtest not set ")
-            updateBacktestId(data[0][0]); // Set first backtest ID if no current ID
-          }
-        } else {
-          updateBacktestId(id); // If current backtest ID exists, update it
-        }
+        await setBacktest(list);
       } catch (error) {
-        log.error('Error fetching current backtest:', error);
+        log.error("Error fetching current backtest:", error);
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchData(); // Call the async function inside useEffect
-  }, []);  // Dependency on backtestList to ensure proper update
+  }, []); // Dependency on backtestList to ensure proper update
 
   return {
     isLoading,
     backtestList,
     currentBacktestId,
     currentBacktestData,
-    updateBacktestId
+    updateBacktestId,
+    refreshBacktestList,
   };
 };
