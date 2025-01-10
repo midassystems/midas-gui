@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { PiGreaterThanBold } from "react-icons/pi";
 import { PiLessThanBold } from "react-icons/pi";
 
-const Modal = ({ isOpen, onClose, groupedSummaries }) => {
+const Modal = ({ isOpen, onClose, groupedSummaries, setSelectedBacktest }) => {
   const [selectedStrategy, setSelectedStrategy] = useState(null); // Track selected strategy
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -74,7 +74,7 @@ const Modal = ({ isOpen, onClose, groupedSummaries }) => {
                     key={index}
                     className="modal-row"
                     onClick={() => {
-                      console.log("Selected Backtest:", backtest[0]);
+                      setSelectedBacktest(backtest[0]);
                       onClose();
                     }}
                   >

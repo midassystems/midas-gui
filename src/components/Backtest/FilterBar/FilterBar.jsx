@@ -45,7 +45,7 @@ const FilterBar = ({
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         groupedSummaries={groupedSummaries}
-        onSelectBacktest={handleSelectBacktest}
+        setSelectedBacktest={handleSelectBacktest}
       />
     </div>
   );
