@@ -12,7 +12,11 @@ pub type BacktestList = Vec<(i32, String)>;
 pub type CurrentBacktestId = Option<i32>;
 
 pub fn price_scale(value: i64) -> f64 {
-    value as f64 / mbn::PRICE_SCALE as f64
+    value as f64 / mbinary::PRICE_SCALE as f64
+}
+
+pub fn quantity_scale(value: i32) -> i32 {
+    value as i32 / mbinary::QUANTITY_SCALE as i32
 }
 
 #[tauri::command]
@@ -107,8 +111,8 @@ pub struct DisplayBacktestData {
     pub signals: Vec<DisplaySignal>,
 }
 
-impl From<mbn::backtest::BacktestData> for DisplayBacktestData {
-    fn from(data: mbn::backtest::BacktestData) -> Self {
+impl From<mbinary::backtest::BacktestData> for DisplayBacktestData {
+    fn from(data: mbinary::backtest::BacktestData) -> Self {
         DisplayBacktestData {
             backtest_name: data.metadata.backtest_name,
             parameters: DisplayParameters::from(data.metadata.parameters),
@@ -140,8 +144,8 @@ pub struct DisplayParameters {
     pub tickers: Vec<String>,
 }
 
-impl From<mbn::backtest::Parameters> for DisplayParameters {
-    fn from(x: mbn::backtest::Parameters) -> Self {
+impl From<mbinary::backtest::Parameters> for DisplayParameters {
+    fn from(x: mbinary::backtest::Parameters) -> Self {
         DisplayParameters {
             strategy_name: x.strategy_name,
             capital: x.capital,
@@ -163,8 +167,8 @@ pub struct DisplayTimeseriesStats {
     pub period_return: f64,
 }
 
-impl From<mbn::backtest::TimeseriesStats> for DisplayTimeseriesStats {
-    fn from(stats: mbn::backtest::TimeseriesStats) -> Self {
+impl From<mbinary::backtest::TimeseriesStats> for DisplayTimeseriesStats {
+    fn from(stats: mbinary::backtest::TimeseriesStats) -> Self {
         DisplayTimeseriesStats {
             timestamp: stats.timestamp / 1_000_000_000,
             equity_value: price_scale(stats.equity_value),
@@ -203,8 +207,8 @@ pub struct DisplayStaticStats {
     pub sortino_ratio: f64,                        // Scaled by 1e9
 }
 
-impl From<mbn::backtest::StaticStats> for DisplayStaticStats {
-    fn from(stat: mbn::backtest::StaticStats) -> Self {
+impl From<mbinary::backtest::StaticStats> for DisplayStaticStats {
+    fn from(stat: mbinary::backtest::StaticStats) -> Self {
         DisplayStaticStats {
             total_trades: stat.total_trades,
             total_winning_trades: stat.total_winning_trades,
@@ -253,8 +257,8 @@ pub struct DisplayTrade {
     pub fees: f64,
 }
 
-impl From<mbn::backtest::Trades> for DisplayTrade {
-    fn from(trade: mbn::backtest::Trades) -> Self {
+impl From<mbinary::backtest::Trades> for DisplayTrade {
+    fn from(trade: mbinary::backtest::Trades) -> Self {
         DisplayTrade {
             trade_id: trade.trade_id,
             leg_id: trade.leg_id,
@@ -278,8 +282,8 @@ pub struct DisplaySignal {
     pub trade_instructions: Vec<DisplaySignalInstructions>,
 }
 
-impl From<mbn::backtest::Signals> for DisplaySignal {
-    fn from(signal: mbn::backtest::Signals) -> Self {
+impl From<mbinary::backtest::Signals> for DisplaySignal {
+    fn from(signal: mbinary::backtest::Signals) -> Self {
         DisplaySignal {
             unix_timestamp: signal.timestamp,
             iso_timestamp: format_timestamp(signal.timestamp),
@@ -305,8 +309,8 @@ pub struct DisplaySignalInstructions {
     pub aux_price: String,
 }
 
-impl From<mbn::backtest::SignalInstructions> for DisplaySignalInstructions {
-    fn from(instructions: mbn::backtest::SignalInstructions) -> Self {
+impl From<mbinary::backtest::SignalInstructions> for DisplaySignalInstructions {
+    fn from(instructions: mbinary::backtest::SignalInstructions) -> Self {
         DisplaySignalInstructions {
             ticker: instructions.ticker,
             order_type: instructions.order_type,
@@ -314,7 +318,7 @@ impl From<mbn::backtest::SignalInstructions> for DisplaySignalInstructions {
             trade_id: instructions.trade_id,
             leg_id: instructions.leg_id,
             weight: price_scale(instructions.weight),
-            quantity: instructions.quantity,
+            quantity: quantity_scale(instructions.quantity),
             limit_price: instructions.limit_price,
             aux_price: instructions.aux_price,
         }

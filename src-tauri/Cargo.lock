@@ -7,8 +7,8 @@ name = "Midas"
 version = "0.1.0"
 dependencies = [
  "chrono",
- "mbn",
- "midas_client",
+ "mbinary",
+ "midas-client",
  "reqwest 0.11.27",
  "serde",
  "serde_json",
@@ -2034,9 +2034,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2532096657941c2fea9c289d370a250971c689d4f143798ff67113ec042024a5"
 
 [[package]]
-name = "mbn"
-version = "1.0.7"
-source = "git+https://github.com/midassystems/mbn.git?branch=main#59c63225e3e0794935b99974dc0112ffeadbbc69"
+name = "mbinary"
+version = "1.0.22"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bce08268c366169d415960acebb15b62790833cd264e53cd4556b22f9e21e601"
 dependencies = [
  "bytemuck",
  "chrono",
@@ -2044,6 +2045,7 @@ dependencies = [
  "futures",
  "num_enum",
  "serde",
+ "serde_json",
  "sqlx",
  "thiserror 1.0.64",
  "time",
@@ -2066,13 +2068,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "midas_client"
-version = "0.1.0"
-source = "git+https://github.com/midassystems/midas-rs.git?branch=main#6aa2b78191a67980fc9d0a8c92f9045e2ed1cd0c"
+name = "midas-client"
+version = "1.0.18"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1627be750074c4517e53e01985303619874793184ec114e28318b91f46820d2f"
 dependencies = [
  "chrono",
  "futures-util",
- "mbn",
+ "mbinary",
  "reqwest 0.12.8",
  "serde",
  "serde_json",
@@ -3437,9 +3440,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.128"
+version = "1.0.138"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6ff5456707a1de34e7e37f2a6fd3d3f808c318259cbd01ab6377795054b483d8"
+checksum = "d434192e7da787e94a6ea7e9670b26a036d0ca41e0b7efb2676dd32bae872949"
 dependencies = [
  "itoa 1.0.11",
  "memchr",

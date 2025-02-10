@@ -27,8 +27,10 @@ reqwest = { version = "0.11", features = ["json"] }
 chrono = { version = "0.4", features = ["serde"] }
 tokio = { version = "1", features = ["sync", "rt-multi-thread"] }
 toml = "0.8.19"
-mbn = { git = "https://github.com/midassystems/mbn.git", branch = "main" }
-midas_client = { git="https://github.com/midassystems/midas-rs.git", branch ="main" }
+mbinary = {version= "1.0.22"}
+midas-client = {version="1.0.18"}
+# mbn = { git = "https://github.com/midassystems/mbn.git", branch = "main" }
+# midas_client = { git="https://github.com/midassystems/midas-rs.git", branch ="main" }
 
 [dev-dependencies]
 tokio = { version = "1.0", features = ["macros", "rt-multi-thread", "time"] }
