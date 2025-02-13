@@ -30,4 +30,4 @@ package:
 	chmod +x midas-gui-release/install.sh
 
 	# Create a tar.gz archive of the release
-	tar -czvf release/midas-1.0.0.tar.gz midas-gui-release/
+	# tar -czvf release/midas-1.0.0.tar.gz midas-gui-release/
