@@ -27,12 +27,12 @@ export const LineChart = ({ data }) => {
       crosshair: {
         mode: CrosshairMode.Normal,
       },
-      // leftPriceScale: {
-      //   visible: true,
-      //   ticksVisible: true,
-      //   textColor: 'rgba(197, 203, 206, 1)',
-      //   borderColor: 'rgba(197, 203, 206, 1)',
-      // },
+      leftPriceScale: {
+        visible: true,
+        ticksVisible: true,
+        textColor: "#555",
+        borderColor: "#555",
+      },
       rightPriceScale: {
         visible: true,
         ticksVisible: true,
@@ -51,10 +51,14 @@ export const LineChart = ({ data }) => {
 
     // Create chart with options
     const chart = createChart(chartContainerRef.current, chartOptions);
+    chart.timeScale().applyOptions({
+      minBarSpacing: 0.01,
+    });
     chart.timeScale().fitContent();
 
     // Create a line series
     const lineSeries = chart.addSeries(LineSeries, {
+      priceScaleId: "right",
       color: "#1F456E", // line color
       lineWidth: 2,
       priceFormat: {
@@ -64,9 +68,30 @@ export const LineChart = ({ data }) => {
       },
     });
 
+    lineSeries.createPriceLine({
+      price: 50000,
+      color: "#555",
+      lineWidth: 2,
+      lineStyle: 2, // LineStyle.Dashed
+      axisLabelVisible: true,
+      title: "Initial",
+    });
+
+    // const invisibleSeries = chart.addSeries(LineSeries, {
+    //   priceScaleId: "left",
+    //   color: "#ffffff00", // line color
+    //   lineWidth: 2,
+    //   priceFormat: {
+    //     type: "number",
+    //     minMove: 0.01,
+    //     precision: 2,
+    //   },
+    // });
+
     // Assuming `data` is an array of data points in the format { time: 'YYYY-MM-DD', value: price }
     if (data && data.length > 0) {
       lineSeries.setData(data);
+      // invisibleSeries.setData(data);
     }
 
     // Resize observer to adjust chart size on container resize

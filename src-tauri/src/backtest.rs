@@ -245,7 +245,7 @@ impl From<mbinary::backtest::StaticStats> for DisplayStaticStats {
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct DisplayTrade {
     pub trade_id: i32,
-    pub leg_id: i32,
+    pub signal_id: i32,
     pub unix_timestamp: i64,
     pub iso_timestamp: String,
     pub ticker: String,
@@ -261,7 +261,7 @@ impl From<mbinary::backtest::Trades> for DisplayTrade {
     fn from(trade: mbinary::backtest::Trades) -> Self {
         DisplayTrade {
             trade_id: trade.trade_id,
-            leg_id: trade.leg_id,
+            signal_id: trade.signal_id,
             unix_timestamp: trade.timestamp,
             iso_timestamp: format_timestamp(trade.timestamp),
             ticker: trade.ticker,
@@ -301,8 +301,7 @@ pub struct DisplaySignalInstructions {
     pub ticker: String,
     pub order_type: String,
     pub action: String,
-    pub trade_id: i32,
-    pub leg_id: i32,
+    pub signal_id: i32,
     pub weight: f64, // Scaled by 1e9
     pub quantity: i32,
     pub limit_price: String,
@@ -315,8 +314,7 @@ impl From<mbinary::backtest::SignalInstructions> for DisplaySignalInstructions {
             ticker: instructions.ticker,
             order_type: instructions.order_type,
             action: instructions.action,
-            trade_id: instructions.trade_id,
-            leg_id: instructions.leg_id,
+            signal_id: instructions.signal_id,
             weight: price_scale(instructions.weight),
             quantity: quantity_scale(instructions.quantity),
             limit_price: instructions.limit_price,
