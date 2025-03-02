@@ -98,8 +98,7 @@ After installation, the application creates a configuration file at `~/.config/m
 ```toml
 [common]
 log_level = "info"
-historical_url = "http://127.0.0.1:8080"
-trading_url = "http://127.0.0.1:8081"
+midas_url = "http://127.0.0.1:8080"
 api_key = "api_key"
 
 [dashboard]
@@ -116,7 +115,7 @@ chart_symbols = ["FOREXCOM:SPXUSD", "CBOT:ZM1!", "CME:HE1!", "CBOT:ZC1!"]
 
 1. **Finnhub API Key**: The news feed is powered by Finnhub. You will need to sign up for a free account on [Finnhub](https://finnhub.io/) and replace `yourapikey` in the `finnhub_url` with your API key.
 
-2. **Historical and Trading URLs**: These URLs point to the `midas-server` backend. If the backend is run locally (e.g., via Docker), ensure these URLs match the local setup.
+2. **Midas URLs**: URL points to the `midas-server` backend. If the backend is run locally (e.g., via Docker), ensure URL matches local setup.
 
 3. **Dashboard Settings**:
    - `window_title`: Customize the dashboard window title.
