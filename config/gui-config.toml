@@ -1,7 +1,6 @@
 [common]
 log_level = "info"
-historical_url = "http://127.0.0.1:8080"
-trading_url = "http://127.0.0.1:8081"
+midas_url = "http://127.0.0.1:8080"
 api_key = "api_key"
 
 [dashboard]

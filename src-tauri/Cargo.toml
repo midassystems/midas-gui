@@ -28,7 +28,7 @@ chrono = { version = "0.4", features = ["serde"] }
 tokio = { version = "1", features = ["sync", "rt-multi-thread"] }
 toml = "0.8.19"
 mbinary = {version= "1.0.26"}
-midas-client = {version="1.0.20"}
+midas-client = {version="1.0.22"}
 
 [dev-dependencies]
 tokio = { version = "1.0", features = ["macros", "rt-multi-thread", "time"] }

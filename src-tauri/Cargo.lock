@@ -2095,9 +2095,9 @@ dependencies = [
 
 [[package]]
 name = "midas-client"
-version = "1.0.21"
+version = "1.0.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "79cd64b2240d2082a7a08a5088c7c9273ecd72a2cd7ff961a14430315addd45a"
+checksum = "b16636fb0fc4f94d50da0473adea9f7de6cd71783209abf9ede0d973d44af202"
 dependencies = [
  "chrono",
  "futures",
