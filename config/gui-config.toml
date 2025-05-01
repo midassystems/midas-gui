@@ -10,5 +10,5 @@ refresh_interval = 60
 finnhub_key = "api_key"
 finnhub_url =  "https://finnhub.io/api/v1/news?category=general&token=yourapikey"
 num_charts = 4
-chart_symbols =["FOREXCOM:SPXUSD", "CBOT:ZM1!", "CME:HE1!", "CBOT:ZC1!"]
+chart_symbols =["FOREXCOM:SPXUSD", "NASDAQ:AAPL", "NASDAQ:TSLA", "NASDAQ:NVDA"]
 

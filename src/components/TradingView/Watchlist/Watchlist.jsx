@@ -1,150 +1,159 @@
-import './Watchlist.css';
-import React, { useEffect, useRef } from 'react';
+import "./Watchlist.css";
+import React, { useEffect, useRef } from "react";
 
 const TradingViewWatchlist = () => {
   const container = useRef();
   const symbols = [
     {
-      "title": "Indices",
-      "symbols": [
+      title: "Indices",
+      symbols: [
         {
-          "s": "FOREXCOM:SPXUSD",
-          "d": "S&P 500 Index"
+          s: "FOREXCOM:SPXUSD",
+          d: "S&P 500 Index",
         },
         {
-          "s": "FOREXCOM:NSXUSD",
-          "d": "US 100 Cash CFD"
+          s: "FOREXCOM:NSXUSD",
+          d: "US 100 Cash CFD",
         },
         {
-          "s": "FOREXCOM:DJI",
-          "d": "Dow Jones Industrial Average Index"
+          s: "FOREXCOM:DJI",
+          d: "Dow Jones Industrial Average Index",
         },
         {
-          "s": "INDEX:NKY",
-          "d": "Nikkei 225"
+          s: "INDEX:NKY",
+          d: "Nikkei 225",
         },
         {
-          "s": "INDEX:DEU40",
-          "d": "DAX Index"
+          s: "INDEX:DEU40",
+          d: "DAX Index",
         },
         {
-          "s": "FOREXCOM:UKXGBP",
-          "d": "FTSE 100 Index"
-        }
+          s: "FOREXCOM:UKXGBP",
+          d: "FTSE 100 Index",
+        },
       ],
-      "originalTitle": "Indices"
+      originalTitle: "Indices",
     },
     {
-      "title": "Futures",
-      "symbols": [
+      title: "Forex",
+      symbols: [
         {
-          "s": "CME_MINI:ES1!",
-          "d": "S&P 500"
+          s: "FX:EURUSD",
+          d: "EUR to USD",
         },
         {
-          "s": "CME:6E1!",
-          "d": "Euro"
+          s: "FX:GBPUSD",
+          d: "GBP to USD",
         },
         {
-          "s": "COMEX:GC1!",
-          "d": "Gold"
+          s: "FX:USDJPY",
+          d: "USD to JPY",
         },
         {
-          "s": "NYMEX:CL1!",
-          "d": "WTI Crude Oil"
+          s: "FX:USDCHF",
+          d: "USD to CHF",
         },
         {
-          "s": "NYMEX:NG1!",
-          "d": "Gas"
+          s: "FX:AUDUSD",
+          d: "AUD to USD",
         },
         {
-          "s": "CBOT:ZC1!",
-          "d": "Corn"
-        }
+          s: "FX:USDCAD",
+          d: "USD to CAD",
+        },
       ],
-      "originalTitle": "Futures"
+      originalTitle: "Forex",
     },
     {
-      "title": "Bonds",
-      "symbols": [
+      title: "Equities",
+      symbols: [
         {
-          "s": "CBOT:ZB1!",
-          "d": "T-Bond"
+          s: "NASDAQ:AAPL",
+          d: "Apple",
         },
         {
-          "s": "CBOT:UB1!",
-          "d": "Ultra T-Bond"
+          s: "NASDAQ:MSFT",
+          d: "Microsoft",
         },
         {
-          "s": "EUREX:FGBL1!",
-          "d": "Euro Bund"
+          s: "NASDAQ:NVDA",
+          d: "Nvidia",
         },
         {
-          "s": "EUREX:FBTP1!",
-          "d": "Euro BTP"
+          s: "NASDAQ:TSLA",
+          d: "Tesla",
         },
         {
-          "s": "EUREX:FGBM1!",
-          "d": "Euro BOBL"
-        }
+          s: "NASDAQ:META",
+          d: "Meta",
+        },
+        {
+          s: "NASDAQ:AMZN",
+          d: "Amazon",
+        },
+        {
+          s: "NASDAQ:GOOG",
+          d: "Google",
+        },
       ],
-      "originalTitle": "Bonds"
+      originalTitle: "Equities",
     },
     {
-      "title": "Forex",
-      "symbols": [
+      title: "Bonds",
+      symbols: [
+        // {
+        //   s: "CBOT:ZB1!",
+        //   d: "T-Bond",
+        // },
+        // {
+        //   s: "CBOT:UB1!",
+        //   d: "Ultra T-Bond",
+        // },
         {
-          "s": "FX:EURUSD",
-          "d": "EUR to USD"
+          s: "EUREX:FGBL1!",
+          d: "Euro Bund",
         },
         {
-          "s": "FX:GBPUSD",
-          "d": "GBP to USD"
+          s: "EUREX:FBTP1!",
+          d: "Euro BTP",
         },
         {
-          "s": "FX:USDJPY",
-          "d": "USD to JPY"
+          s: "EUREX:FGBM1!",
+          d: "Euro BOBL",
         },
-        {
-          "s": "FX:USDCHF",
-          "d": "USD to CHF"
-        },
-        {
-          "s": "FX:AUDUSD",
-          "d": "AUD to USD"
-        },
-        {
-          "s": "FX:USDCAD",
-          "d": "USD to CAD"
-        }
       ],
-      "originalTitle": "Forex"
-    }
+      originalTitle: "Bonds",
+    },
   ];
 
-  const containerWidth = container.current ? container.current.offsetWidth : 500; // Set a default width if undefined
-  const containerHeight = container.current ? container.current.offsetHeight : 425; // Set a default height if undefined
+  const containerWidth = container.current
+    ? container.current.offsetWidth
+    : 500; // Set a default width if undefined
+  const containerHeight = container.current
+    ? container.current.offsetHeight
+    : 425; // Set a default height if undefined
   useEffect(() => {
-    const scriptId = 'tradingview-market-overview';
+    const scriptId = "tradingview-market-overview";
     let script = document.getElementById(scriptId);
 
     if (!script) {
-      script = document.createElement('script');
+      script = document.createElement("script");
       script.id = scriptId;
-      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js";
+      script.src =
+        "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js";
       script.async = true;
-      script.type = 'text/javascript';
+      script.type = "text/javascript";
       script.innerHTML = JSON.stringify({
-        "colorTheme": "dark",
-        "dateRange": "12M",
-        "showChart": false,
-        "locale": "en",
-        "isTransparent": true,
-        "showSymbolLogo": false,
-        "showFloatingTooltip": false,
-        "width": containerWidth.toString(), // Set the width dynamically
-        "height": containerHeight.toString(), // Set the height dynamically
-        "tabs": symbols,
+        colorTheme: "dark",
+        dateRange: "12M",
+        showChart: false,
+        locale: "en",
+        isTransparent: true,
+        showSymbolLogo: false,
+        showFloatingTooltip: false,
+        width: containerWidth.toString(), // Set the width dynamically
+        height: containerHeight.toString(), // Set the height dynamically
+        tabs: symbols,
       });
       container.current.appendChild(script);
     }
@@ -165,4 +174,3 @@ const TradingViewWatchlist = () => {
 };
 
 export default TradingViewWatchlist;
-
