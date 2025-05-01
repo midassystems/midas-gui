@@ -36,61 +36,9 @@ The application currently features three key pages:
 ![Backtest Results](assets/backtest.png)
 
 ## Installation
-
-### Option 1: From Source (Recommended)
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/midassystems/midas-gui.git
-   cd midas-gui
-   ```
-
-2. Run the build script:
-
-   ```bash
-   ./scripts/build.sh
-   ```
-
-   - When prompted, select **Production**.
-
-3. Navigate to the release directory:
-
-   ```bash
-   cd midas-gui-release
-   ```
-
-4. Make the installer executable:
-
-   ```bash
-   chmod +x ./install.sh
-   ```
-
-5. Run the installer:
-   ```bash
-   ./install.sh
-   ```
-
-### Option 2: Using Prebuilt Release (Mac Only)
-
-1. Download the latest prebuilt tarball from the [Releases](https://github.com/midassystems/midas-gui/releases) page.
-2. Extract the tarball:
-   ```bash
-   tar -xvf midas-gui-mac-release.tar.gz
-   ```
-3. Navigate to the extracted directory:
-   ```bash
-   cd midas-gui-mac-release
-   ```
-4. Make the installer executable:
-   ```bash
-   chmod +x ./install.sh
-   ```
-5. Run the installer:
-   ```bash
-   ./install.sh
-   ```
-
+```bash
+curl -sSfL https://raw.githubusercontent.com/midassystems/midas-gui/main/scripts/install.sh | bash
+```
 ## Configuration
 
 After installation, the application creates a configuration file at `~/.config/midas/gui-config.toml`. Users will need to edit this file to customize their setup. Below is the default configuration:
