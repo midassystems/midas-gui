@@ -32,6 +32,8 @@ for file in "${files[@]}"; do
 	fi
 done
 
+cd "src-tauri/target/release"
+
 # MacOS installation
 if [[ "$OS" == "Darwin" ]]; then
 	TAURI_APP_BUNDLE="bundle/macos/Midas.app"
