@@ -38,8 +38,8 @@ cd "src-tauri/target/release"
 if [[ "$OS" == "Darwin" ]]; then
 	TAURI_APP_BUNDLE="bundle/macos/Midas.app"
 	if [ -d "$TAURI_APP_BUNDLE" ]; then
-		rm -r /Applications/Midas.app
-		cp -r "$TAURI_APP_BUNDLE" /Applications/Midas.app
+		sudo rm -r /Applications/Midas.app
+		sudo cp -r "$TAURI_APP_BUNDLE" /Applications/Midas.app
 		echo "Installed to /Applications on macOS."
 	else
 		echo "Error finding build artifact $TAURI_APP_BUNDLE."
