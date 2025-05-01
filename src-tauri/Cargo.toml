@@ -1,6 +1,6 @@
 [package]
 name = "Midas"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Tauri App"
 authors = ["anthony baxter"]
 edition = "2021"
