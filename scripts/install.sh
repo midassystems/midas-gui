@@ -8,7 +8,7 @@ BUILD_DIR="$(mktemp -d)"
 INSTALL_PATH="$HOME/.config/midas/bin"
 
 # Clone repo
-git clone --depth 1 --branch updating_install "$REPO_URL" "$BUILD_DIR"
+git clone --depth 1 "$REPO_URL" "$BUILD_DIR"
 
 # Build
 cd "$BUILD_DIR"
