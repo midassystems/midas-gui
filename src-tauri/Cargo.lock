@@ -4,7 +4,7 @@ version = 4
 
 [[package]]
 name = "Midas"
-version = "0.1.1"
+version = "0.1.3"
 dependencies = [
  "chrono",
  "mbinary",
@@ -2051,9 +2051,9 @@ checksum = "2532096657941c2fea9c289d370a250971c689d4f143798ff67113ec042024a5"
 
 [[package]]
 name = "mbinary"
-version = "1.0.26"
+version = "1.0.35"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4298e596bae7ff4407765773e4ae28165d98afcfa06812acbe3ca3d4e92bd79b"
+checksum = "49fcd5b1464ef7fc49dc956839f950b7baac392741108e9054ab621b3c9f02c1"
 dependencies = [
  "bytemuck",
  "chrono",
@@ -2095,9 +2095,9 @@ dependencies = [
 
 [[package]]
 name = "midas-client"
-version = "1.0.21"
+version = "1.0.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "79cd64b2240d2082a7a08a5088c7c9273ecd72a2cd7ff961a14430315addd45a"
+checksum = "58897584a5f250404fb3ddf993550ec892ffedfb4e40949d71febc06867b33dc"
 dependencies = [
  "chrono",
  "futures",
